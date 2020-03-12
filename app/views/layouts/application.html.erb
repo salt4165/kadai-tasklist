@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-  <head>
+  <head lang="ja">
     <title>KadaiTasklist</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -10,6 +10,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <div class="container">
+      <%= render 'layouts/flash_tasks' %>
+      
+      <%= yield %>
+    </div>
   </body>
 </html>
