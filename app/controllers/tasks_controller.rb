@@ -20,14 +20,12 @@ class TasksController < ApplicationController
             flash[:success] = 'タスクが正常に作成されました'
             redirect_to root_url
         else
-            @task = current_user.tasks.order(id: :desc)
             flash.now[:danger] = 'タスクを作成できませんでした'
             render :new
         end
     end
     
     def edit
-        @task = current_user.tasks.find_by(id: params[:id])
     end
     
     def update
