@@ -1,0 +1,12 @@
+<ul>
+    <% tasks.each do |task| %>
+    <li>
+        <div>
+            <p><%= link_to task.user.name, user_path(task.user) %> <span>posted at <%= task.cleate_at %></span></p>
+        </div>
+        <div>
+            <p><%= task.content %></p>
+        </div>
+    </li>
+    <% end %>
+</ul>
