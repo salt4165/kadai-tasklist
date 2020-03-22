@@ -3,9 +3,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    name = params[:session][:name].downcase
+    email = params[:session][:email].downcase
     password = params[:session][:password]
-    if login(name,password)
+    if login(email,password)
       flash[:success] = 'ログインに成功しました。'
       redirect_to root_url
     else
@@ -22,8 +22,8 @@ class SessionsController < ApplicationController
   
   private
   
-  def login(name,password)
-    @user = User.find_by(name: name)
+  def login(email,password)
+    @user = User.find_by(email: email)
     if @user && @user.authenticate(password)
       session[:user_id] = @user.id
       return true
